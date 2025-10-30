@@ -1,0 +1,33 @@
+package controllers;
+
+import java.io.IOException;
+import java.util.Date;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/c.do")
+public class CServlet extends HttpServlet{
+    public void doGet(HttpServletRequest request, HttpServletResponse response)  throws IOException,ServletException{
+        HttpSession session = request.getSession();
+
+
+        System.out.println("Session:");
+        System.out.println("Id: " + session.getId());
+        System.out.println("Creation Time: " + new Date(session.getCreationTime()));
+        System.out.println("Last Accessed Time: " + new Date(session.getLastAccessedTime()));
+        System.out.println("Is New: " + session.isNew());
+        System.out.println("Max Inaction Interval: " + session.getMaxInactiveInterval());
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ");
+
+        Integer info = (Integer)session.getAttribute("info");
+        Integer moreInfo = (Integer)session.getAttribute("more_info");
+        System.out.println("Info: " + info);
+        System.out.println("More Info: " + moreInfo);
+
+        request.getRequestDispatcher("c.html").forward(request, response);
+    }
+}
