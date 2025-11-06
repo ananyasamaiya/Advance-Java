@@ -1,0 +1,14 @@
+drop database schooldb;
+
+create database schooldb;
+
+use schooldb;
+
+create table students
+(
+    student_id int auto_increment primary key,
+    name varchar(35) not null,
+    age int not null,
+    college varchar(60) not null,
+    marks float not null
+);
