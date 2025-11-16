@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Index Page</h1>
+
+    <hr>
+
+    <button type="button" id="btn">Show Records</button>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>College</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody id="tbd">
+
+        </tbody>
+    </table>
+
+    <script>
+        const btn  = document.querySelector('#btn');
+        const tbd  = document.querySelector('#tbd');
+
+        btn.addEventListener('click', () =>{
+            const req = new XMLHttpRequest();
+
+            req.open('GET','show_all.do', true);
+
+            req.addEventListener('readystatechange', () =>{
+                if(req.readyState == 4 && req.status == 200){
+                    console.log(req.responseText);
+                    console.log(JSON.parse(req.responseText));
+                }
+            });
+            req.send();
+        });
+
+    </script>
+</body>
+</html>
