@@ -1,0 +1,11 @@
+create database infodb;
+
+use infodb;
+
+create table users
+(
+    user_id int auto_increment primary key,
+    name varchar(35) not null,
+    email varchar(150) not null unique,
+    password varchar(12) not null
+);
