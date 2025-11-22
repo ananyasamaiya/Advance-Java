@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- #############  SignUp Modal ############## Start ############## -->
+    <div class="modal fade" id="signup-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">User SignUp</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body px-5">
+            <form id="signup_form">
+              <div class="mb-3">
+                <label for="uname" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="uname" />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary me-4" id="signup_btn">
+              SignUp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #############  SignUp Modal ############## End ############## -->
+
+    <!-- #############  SignIn Offcanvas ############## Start ############## -->
+
+    <div class="offcanvas offcanvas-start" id="signin_offcanvas">
+      <div class="toast position-fixed top-0 start-0 m-2" id="signin_error">
+        <div class="toast-header text-light fw-bold text-bg-danger">
+          Sorry SignIn Failed... Either email or password is Incorrect....
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+          ></button>
+        </div>
+      </div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">User SignIn</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body px-4">
+        <form
+          id="signin_form"
+          class="border border-secondary rounded p-5 bg-secondary-subtle shadow-lg"
+        >
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="_email" />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="_password" />
+          </div>
+          <button type="button" class="btn btn-primary" id="signin_btn">
+            SignIn
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- #############  SignIn Offcanvas ############## End ############## -->
+    <!-- #############  Products Modal ############## Start ############## -->
+    <div class="modal fade" id="product_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">New Product</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" id="product_form">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  id="product_name"
+                  class="form-control"
+                  placeholder="Product Name"
+                />
+                <label for="product_name" class="form-label"
+                  >Product Name</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  id="product_quantity"
+                  class="form-control"
+                  placeholder="Product Quantity"
+                />
+                <label for="product_quantity" class="form-label"
+                  >Product Quantity</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  id="product_price"
+                  class="form-control"
+                  placeholder="Product Price"
+                />
+                <label for="product_price" class="form-label"
+                  >Product Price</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <textarea
+                  type="number"
+                  id="product_description"
+                  class="form-control"
+                  placeholder="Product Description"
+                ></textarea>
+                <label for="product_description" class="form-label"
+                  >Product Description</label
+                >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="save_product_btn">
+              Save Product
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #############  Products Modal ############## End ############## -->
+
+    <div class="container">
+      <div class="row bg-primary-subtle">
+        <div class="col py-3 ps-4">
+          <img src="logo.png" style="width: 45px" />
+          <h4 class="d-inline-block ms-2 text-primary-emphasis">ISRDC INC.</h4>
+        </div>
+        <div class="col text-end py-3">
+          <span id="signin_signup_box">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#signup-modal"
+              id="sup"
+            >
+              SignUp
+            </button>
+            <button
+              type="button"
+              class="btn btn-success me-3 ms-2"
+              id="sin"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#signin_offcanvas"
+            >
+              SignIn
+            </button>
+          </span>
+          <span id="signout_welcome_box" class="d-none">
+            <span id="welcome_user">Welcome</span>
+            <button type="button" class="btn btn-danger me-3 ms-2" id="sout">
+              SignOut
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="row d-none" id="user_area">
+        <div class="col">
+          <!-- ## Menu Bar ##  -->
+          <div class="row">
+            <div class="col">
+              <ul class="nav nav-pills ms-3 mt-3">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+
+          <!-- ## Add Product Button ##   -->
+          <div class="row">
+            <div class="col text-end">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#product_modal"
+              >
+                New Product
+              </button>
+            </div>
+          </div>
+
+          <!-- ## All Products View ##   -->
+          <div class="row" id="all_products"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      let user = null;
+
+      const userArea = document.querySelector("#user_area");
+      const signinSignupBox = document.querySelector("#signin_signup_box");
+      const signOutBtn = document.querySelector("#sout");
+      const signOutWelcomeBox = document.querySelector("#signout_welcome_box");
+      const welcomeUser = document.querySelector("#welcome_user");
+
+      // ############### Product Fields ################# start ##############
+      const saveProductBtn = document.querySelector("#save_product_btn");
+
+      const productName = document.querySelector("#product_name");
+      const productQuantity = document.querySelector("#product_quantity");
+      const productPrice = document.querySelector("#product_price");
+      const productDescription = document.querySelector("#product_description");
+
+      const productModal = new bootstrap.Modal("#product_modal");
+      const productForm = document.querySelector("#product_form");
+      const allProducts = document.querySelector("#all_products");
+      // ############### Product Fields ################# end ##############
+
+      // ############### SignIn Fields ################# start ##############
+      const signinBtn = document.querySelector("#signin_btn");
+      const signinError = document.querySelector("#signin_error");
+      const signinErrorToast = bootstrap.Toast.getOrCreateInstance(signinError);
+      const _email = document.querySelector("#_email");
+      const _password = document.querySelector("#_password");
+
+      const signinOffcanvas = new bootstrap.Offcanvas("#signin_offcanvas");
+      const signinForm = document.querySelector("#signin_form");
+
+      // ############### SignIn Fields ################# end ##############
+
+      // ############### SignUp Fields ################# start ##############
+      const uname = document.querySelector("#uname");
+      const email = document.querySelector("#email");
+      const password = document.querySelector("#password");
+
+      const signupModal = new bootstrap.Modal("#signup-modal");
+      const signupBtn = document.querySelector("#signup_btn");
+      const signupForm = document.querySelector("#signup_form");
+      // ############### SignUp Fields ################# end ##############
+
+      // ############### Show Product ################# start ##############
+      const collectAllProducts = () => {
+        const allProductsReq = new XMLHttpRequest();
+
+        allProductsReq.open("get", "all_products.do", true);
+
+        allProductsReq.addEventListener("readystatechange", () => {
+          if (allProductsReq.readyState == 4 && allProductsReq.status == 200) {
+            let products = JSON.parse(allProductsReq.responseText);
+
+            for (let product of products) {
+              let col = document.createElement("div");
+              col.classList.add("col-3");
+              col.classList.add("me-3");
+              col.classList.add("mt-5");
+              let card = document.createElement("div");
+              card.classList.add("card");
+              card.style.width = "18rem";
+
+              let cardBody = document.createElement("div");
+              cardBody.classList.add("card-body");
+
+              let pname = null;
+              let pprice = null;
+              let pquantity = null;
+              let pdescp = null;
+              for (let prop in product) {
+                if (prop == "name") {
+                  pname = product[prop];
+                  
+                } else if (prop == "description") {
+                  pdescp = product[prop];
+                  
+                } else if (prop == "price") {
+                  pprice = product[prop];
+                  
+                } else if (prop == "quantity") {
+                  pquantity = product[prop];
+                 
+                }
+              }
+              let title = document.createElement("h5");
+              title.classList.add("card-title");
+              title.innerText = pname;
+              cardBody.append(title);
+
+              let descp = document.createElement("p");
+              descp.classList.add("card-text");
+              descp.innerText = pdescp;
+              cardBody.append(descp);
+
+              let price = document.createElement("span");
+              price.innerText = `Price: ${pprice}`;
+              cardBody.append(price);
+
+              let quantity = document.createElement("span");
+              quantity.innerText = `Quantity : ${pquantity}`;
+              quantity.classList.add("float-end");
+              cardBody.append(quantity);
+
+              card.append(cardBody);
+              col.append(card);
+
+              allProducts.append(col);
+            }
+          }
+        });
+        allProductsReq.send();
+      };
+      // ############### Show Product ################# end ##############
+
+      // ############### Save Product ################# start ##############
+
+      saveProductBtn.addEventListener("click", () => {
+        const saveProductReq = new XMLHttpRequest();
+
+        // saveProductReq.open('get','save_product.do?product_name=' + productName.value + '&product_price=' + productPrice.value + '&product_quantity=' + productQuantity.value + '&product_description=' + productDescription.value, true);
+        saveProductReq.open(
+          "get",
+          `save_product.do?product_name=${productName.value}&product_price=${productPrice.value}&product_quantity=${productQuantity.value}&product_description=${productDescription.value}`,
+          true
+        );
+
+        saveProductReq.addEventListener("readystatechange", () => {
+          if (saveProductReq.readyState == 4 && saveProductReq.status == 200) {
+            if (saveProductReq.responseText == "true") {
+              productModal.hide();
+              productForm.reset();
+            }
+          }
+        });
+        saveProductReq.send();
+      });
+      // ############### Save Product ################# end ##############
+
+      // ############### SignOut ################# start ##############
+      signOutBtn.addEventListener("click", () => {
+        const signOutReq = new XMLHttpRequest();
+
+        signOutReq.open("get", "signout.do", true);
+
+        signOutReq.addEventListener("readystatechange", () => {
+          if (signOutReq.readyState == 4 && signOutReq.status == 200) {
+            if (signOutReq.responseText == "true") {
+              signinSignupBox.style.display = "inline";
+              signOutWelcomeBox.classList.add("d-none");
+              userArea.classList.add("d-none");
+
+              allProducts.innerHTML = '';
+            }
+          }
+        });
+        signOutReq.send();
+      });
+      // ############### SignOut ################# end ##############
+
+      // ############### SignIn ################# start ##############
+      signinBtn.addEventListener("click", () => {
+        const signinReq = new XMLHttpRequest();
+
+        signinReq.open(
+          "get",
+          "signin.do?email=" + _email.value + "&password=" + _password.value,
+          true
+        );
+
+        signinReq.addEventListener("readystatechange", () => {
+          if (signinReq.readyState == 4 && signinReq.status == 200) {
+            // console.log(signinReq.responseText , '~~~~~~~~~~~`');
+            const flag = signinReq.responseText;
+            if (flag == "false") {
+              signinErrorToast.show();
+            } else {
+              signinOffcanvas.hide();
+              signinForm.reset();
+              signinSignupBox.style.display = "none";
+              signOutWelcomeBox.classList.remove("d-none");
+              userArea.classList.remove("d-none");
+
+              // console.log(flag);
+              user = JSON.parse(flag);
+              // console.log(user.name);
+
+              welcomeUser.innerText = "Welcome " + user.name;
+
+              collectAllProducts();
+            }
+          }
+        });
+
+        signinReq.send();
+      });
+      // ############### SignIn ################# end ##############
+
+      // ############### SignUp ################# start ##############
+      signupBtn.addEventListener("click", () => {
+        const signupReq = new XMLHttpRequest();
+
+        signupReq.open(
+          "get",
+          "signup.do?uname=" +
+            uname.value +
+            "&email=" +
+            email.value +
+            "&password=" +
+            password.value,
+          true
+        );
+
+        signupReq.addEventListener("readystatechange", () => {
+          if (signupReq.readyState == 4 && signupReq.status == 200) {
+            let resp = signupReq.responseText;
+
+            // console.log(resp, typeof resp);
+            if (resp == "true") {
+              signupForm.reset();
+              signupModal.hide();
+            }
+          }
+        });
+        signupReq.send();
+      });
+      // ############### SignUp ################# End ##############
+    </script>
+  </body>
+</html>
+
+<!-- <div class="alert alert-secondary w-50 m-auto d-block" id="product_msg">
+      No Products Found
+  </div> -->
