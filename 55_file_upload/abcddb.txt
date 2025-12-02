@@ -1,0 +1,12 @@
+create database abcdb;
+
+use abcdb;
+
+create table users
+(
+    user_id int auto_increment primary key,
+    name varchar(100) not null,
+    email varchar(100) not null unique,
+    password varchar(20) not null,
+    pic varchar(100)
+);
